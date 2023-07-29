@@ -16,10 +16,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func keyPressed(_ sender: UIButton) {
+        print("Start")
+        sender.alpha = 0.2
+        
         // this works
         if let buttonText = sender.titleLabel?.text {
             print(buttonText)
             playSound(buttonText)
+        }
+        print("End")
+        //Code should execute after 0.2 second delay.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            //Bring's sender's opacity back up to fully opaque.
+            sender.alpha = 1.0
         }
         
         // this works too, from AppBrewery
@@ -27,7 +36,7 @@ class ViewController: UIViewController {
 //        playSound(text: buttonText)
     }
     
-    func playSound(_ text: String) { // _ can be removed with AppBrewery's, like that more actually
+    func playSound(_ text: String) { // _ can be removed with AppBrewery's solution, like that one more actually
         do {
             // Check if the sound file is in the bundle
             if let fileURL = Bundle.main.path(forResource: text, ofType: "wav") {
