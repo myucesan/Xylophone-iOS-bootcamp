@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         }
         
         // this works too, from AppBrewery
-        let buttonText = sender.currentTitle!
-        playSound(text: buttonText)
+//        let buttonText = sender.currentTitle!
+//        playSound(text: buttonText)
     }
     
     func playSound(_ text: String) { // _ can be removed with AppBrewery's, like that more actually
